@@ -1,0 +1,9 @@
+flask
+flask-sqlalchemy
+flask-bcrypt
+flask-login
+pyyaml
+ecdsa
+gevent
+flask-socketio
+gevent-websocket

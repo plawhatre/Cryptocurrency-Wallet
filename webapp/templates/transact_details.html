@@ -1,0 +1,204 @@
+{% extends 'layout.html' %}
+{% block contentaccount %}
+<div class="b-example-divider"></div>
+&nbsp;
+&nbsp;
+
+<!-- Table 1 -->
+<p >
+  <left><h2>Table 1: Crypto Sent</h2></left>
+</p>
+
+  <div class="container" data-aos="fade-up">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Time Stamp</th>
+          <th scope="col">Action</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Sender's Public Key</th>
+          <th scope="col">Recipient's Public Key</th>
+          <th scope="col">Signature</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for th in Transaction_history.query.filter_by(sender_address=current_user.uservk, Action='Sent') %}
+        <tr>
+          <td>{{ th.timestamp }}</td>
+          <td>{{ th.Action }}</td>
+          <td>{{ th.amount }}</td>
+          <td>{{ th.sender_address }}</td>
+          <td>{{ th.recipient_address }}</td>
+          <td>{{ th.signature }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+</div>
+
+<!-- Table 2 -->
+<p >
+  <left><h2>Table 2: Crypto Received</h2></left>
+</p>
+
+  <div class="container" data-aos="fade-up">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Time Stamp</th>
+          <th scope="col">Action</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Sender's Public Key</th>
+          <th scope="col">Recipient's Public Key</th>
+          <th scope="col">Signature</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for th in Transaction_history.query.filter_by(recipient_address=current_user.uservk, Action='Sent') %}
+        <tr>
+          <td>{{ th.timestamp }}</td>
+          <td>{{ th.Action }}</td>
+          <td>{{ th.amount }}</td>
+          <td>{{ th.sender_address }}</td>
+          <td>{{ th.recipient_address }}</td>
+          <td>{{ th.signature }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+</div>
+
+<!-- Table 3 -->
+<p >
+  <left><h2>Table 3: Rejected by You</h2></left>
+</p>
+
+  <div class="container" data-aos="fade-up">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Time Stamp</th>
+          <th scope="col">Action</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Sender's Public Key</th>
+          <th scope="col">Recipient's Public Key</th>
+          <th scope="col">Signature</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for th in Transaction_history.query.filter_by(sender_address=current_user.uservk, Action='Rejected') %}
+        <tr>
+          <td>{{ th.timestamp }}</td>
+          <td>{{ th.Action }}</td>
+          <td>{{ th.amount }}</td>
+          <td>{{ th.sender_address }}</td>
+          <td>{{ th.recipient_address }}</td>
+          <td>{{ th.signature }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+</div>
+
+<!-- Table 4 -->
+<p >
+  <left><h2>Table 4: Rejected by Others</h2></left>
+</p>
+
+  <div class="container" data-aos="fade-up">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Time Stamp</th>
+          <th scope="col">Action</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Sender's Public Key</th>
+          <th scope="col">Recipient's Public Key</th>
+          <th scope="col">Signature</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for th in Transaction_history.query.filter_by(recipient_address=current_user.uservk, Action='Rejected') %}
+        <tr>
+          <td>{{ th.timestamp }}</td>
+          <td>{{ th.Action }}</td>
+          <td>{{ th.amount }}</td>
+          <td>{{ th.sender_address }}</td>
+          <td>{{ th.recipient_address }}</td>
+          <td>{{ th.signature }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+</div>
+
+<!-- Table 5 -->
+<p >
+  <left><h2>Table 5: Cancelled by You</h2></left>
+</p>
+
+  <div class="container" data-aos="fade-up">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Time Stamp</th>
+          <th scope="col">Action</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Sender's Public Key</th>
+          <th scope="col">Recipient's Public Key</th>
+          <th scope="col">Signature</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for th in Transaction_history.query.filter_by(recipient_address=current_user.uservk, Action='Canceled') %}
+        <tr>
+          <td>{{ th.timestamp }}</td>
+          <td>{{ th.Action }}</td>
+          <td>{{ th.amount }}</td>
+          <td>{{ th.sender_address }}</td>
+          <td>{{ th.recipient_address }}</td>
+          <td>{{ th.signature }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+</div>
+
+<!-- Table 6 -->
+<p >
+  <left><h2>Table 6: Cancelled by Others</h2></left>
+</p>
+
+  <div class="container" data-aos="fade-up">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Time Stamp</th>
+          <th scope="col">Action</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Sender's Public Key</th>
+          <th scope="col">Recipient's Public Key</th>
+          <th scope="col">Signature</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for th in Transaction_history.query.filter_by(sender_address=current_user.uservk, Action='Canceled') %}
+        <tr>
+          <td>{{ th.timestamp }}</td>
+          <td>{{ th.Action }}</td>
+          <td>{{ th.amount }}</td>
+          <td>{{ th.sender_address }}</td>
+          <td>{{ th.recipient_address }}</td>
+          <td>{{ th.signature }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+</div>
+{% endblock %}

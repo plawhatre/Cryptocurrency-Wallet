@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block contentaccount %}
+<div class="b-example-divider"></div>
+&nbsp;
+&nbsp;
+<p >
+  <center><h2>Peer Network</h2></center>
+</p>
+
+  <div class="container" data-aos="fade-up">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Public Key</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for usr in User.query.all() %}
+        <tr>
+          <td>{{ usr.username }}</td>
+          <td>{{ usr.uservk }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block contentaccount %}
+<!-- ======= Services Section ======= -->
+<div class="b-example-divider"></div>
+<section id="services" class="services">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>Account Details</h2>
+      <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+        <div class="icon-box">
+          <p class="description">Name       :  {{current_user.username}}</p>
+          <p class="description">Email      :  {{current_user.usermail}}</p>
+          <p class="description">Balance    :  {{current_user.userbal}}</p>
+          <p class="description">Public Key :  {{current_user.usersk}}</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- End Services Section -->
+
+{% endblock %}

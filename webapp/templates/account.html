@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% block contentaccount %}
+<!-- ======= Services Section ======= -->
+<div class="b-example-divider"></div>
+<section id="services" class="services">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>Services</h2>
+      <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+        <div class="icon-box">
+          <div class="icon"><i class="bi bi-wallet"></i></div>
+          <h4 class="title"><a href="/viewacc">View Wallet</a></h4>
+          <p class="description">View account balance and transaction history</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
+        <div class="icon-box">
+          <div class="icon"><i class="bi bi-view-stacked"></i></div>
+          <h4 class="title"><a href="/notification">Notifications</a></h4>
+          <p class="description">Check out pending requests</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
+        <div class="icon-box">
+          <div class="icon"><i class="bi bi-upload"></i></div>
+          <h4 class="title"><a href="/send_crypto">Send Crypto</a></h4>
+          <p class="description">Send crypto using address of the receiver</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="400">
+        <div class="icon-box">
+          <div class="icon"><i class="bi bi-download"></i></div>
+          <h4 class="title"><a href="receive_crypto">Receive Crypto</a></h4>
+          <p class="description">Receive crypto by providing address to the sender</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section><!-- End Services Section -->
+
+{% endblock %}

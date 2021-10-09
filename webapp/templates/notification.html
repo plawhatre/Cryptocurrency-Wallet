@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+{% block contentaccount %}
+<div class="b-example-divider"></div>
+&nbsp;
+&nbsp;
+<p >
+  <center><h2>Pending Requests</h2></center>
+  <!-- <p> {{ Notifications.query.first().timestamp }}</p> -->
+</p>
+<form method="POST" action="/notification">
+
+  <div class="container" data-aos="fade-up">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Time Stamp</th>
+          <th scope="col">Action</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Sender's Public Key</th>
+          <th scope="col">Recipient's Public Key</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        {% for notification in Notifications.query.filter_by(sender_address=current_user.uservk) %}
+        <tr>
+
+          <input type="hidden" name="timestamp" value={{ notification.timestamp }}>
+          <input type="hidden" name="amount" value={{ notification.amount }}>
+          <input type="hidden" name="notification_id" value={{ notification.tid }}>
+
+          <input type="hidden" name="sender_address" value={{ notification.sender_address }}>
+          <input type="hidden" name="recipient_address" value={{ notification.recipient_address }}>
+          
+
+          <td>{{ notification.timestamp }}</td>
+          <td>
+            <button class="btn btn-success" type="submit", name='bt' value='Sent'>Send   </button>
+            <button class="btn btn-danger" type="submit" name='bt' value='Rejected'>Reject  </button>
+          </td>
+
+          <td>{{ notification.amount }}</td>
+          <td>{{ notification.sender_address }}</td>
+          <td>{{ notification.recipient_address }}</td>
+        </tr>
+        {% endfor %}
+
+        {% for notification in Notifications.query.filter_by(recipient_address=current_user.uservk) %}
+        <tr>
+
+          <input type="hidden" name="timestamp" value={{ notification.timestamp }}>
+          <input type="hidden" name="amount" value={{ notification.amount }}>
+          <input type="hidden" name="notification_id" value={{ notification.tid }}>
+          
+          <input type="hidden" name="sender_address" value={{ notification.sender_address }}>
+          <input type="hidden" name="recipient_address" value={{ notification.recipient_address }}>
+
+          <td>{{ notification.timestamp }}</td>
+          <td> 
+            <button class="btn btn-warning" type="submit" name='bt' value='Canceled'>Cancel   </button>
+          </td>
+          <td>{{ notification.amount }}</td>
+          <td>{{ notification.sender_address }}</td>
+          <td>{{ notification.recipient_address }}</td>
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+</form>
+
+{% endblock %}

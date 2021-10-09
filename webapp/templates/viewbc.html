@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block contentaccount %}
+<div class="b-example-divider"></div>
+&nbsp;
+&nbsp;
+<p >
+  <center><h2>Entire Blockchain</h2></center>
+</p>
+<section id="servicebc" class="servicebc">
+  <div class="container" data-aos="fade-up">
+    {% for blockkey, blockval in bc.items() %}
+    <div class="icon-box">
+        <h3><u><center>{{ blockkey }}</center></u></h3> 
+        {% for key, val in blockval.items() %}
+          <p><b>{{key | capitalize}}</b>: {{val}}</p>
+        {% endfor %}      
+    </div>
+    {% endfor %}
+</div>
+</section>
+{% endblock %}

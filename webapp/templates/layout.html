@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Crypto World</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/img/favicon.svg" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Krub:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/css/style.css" rel="stylesheet">
+  <link href="/static/css/features.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Bikin - v4.5.0
+  * Template URL: https://bootstrapmade.com/bikin-free-simple-landing-page-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+      <h1 class="logo"><a>Crypto World</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+       <!-- <a href="index.html" class="logo"><img src="static/img/favicon.svg" alt="" class="img-fluid"></a> -->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+
+          {% if not current_user.is_authenticated %}
+          <li><a class="nav-link scrollto active" href="/">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About  </a></li>
+          <li><a class="nav-link scrollto" href="#">GitHub</a></li>
+          <li>
+            <a class="nav-item nav-link" href="/login">Login</a>
+          </li>
+          <li><a class="nav-item nav-link" href="/signup">SignUp</a></li>
+
+          {% else %}
+          <li><a class="nav-link scrollto active" href="/account">Home</a></li>
+
+          </li>
+          <li><a class="nav-item nav-link" href="/transaction_pool">Transaction Pool</a></li>
+          <li><a class="nav-item nav-link" href="/mine">Mine</a></li>
+          <li><a class="nav-item nav-link" href="/viewbc">Blockchain</a></li>
+          <li><a class="nav-item nav-link" href="/peers">Peers</a></li>
+          <li><a class="nav-item nav-link" href="/logout">Logout</a></li>
+          <li><a class="nav-item nav-link" >{{ current_user.username | capitalize }}</a></li>
+
+          {% endif %}
+
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <p class="alert alert-{{ category }}">{{ message }}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  {% if not current_user.is_authenticated %}
+    {% block contentblock %}
+    {% endblock %}
+
+  <main id="main">
+
+  {% block aboutblock %}
+  {% endblock %}
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  {% else %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <p class="alert alert-{{ category }}">{{ message }}</p>
+      {% endfor %}
+    {% endif %}
+    {% endwith %}
+    {% block contentaccount %}
+    {% endblock %}
+  {% endif %}
+
+  <!-- Vendor JS Files -->
+  <script src="static/vendor/aos/aos.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/vendor/php-email-form/validate.js"></script>
+  <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/js/main.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+  <script type="text/javascript" charset="utf-8">
+      var socket = io();
+      socket.on('connect', function() {
+          socket.emit('my event', {data: 'I\'m connected!'});
+      });
+  </script>
+
+</body>
+
+</html>

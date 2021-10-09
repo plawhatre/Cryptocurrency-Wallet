@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+{% block contentaccount %}
+<div class="b-example-divider"></div>
+&nbsp;
+&nbsp;
+<p>
+	&nbsp;
+	&nbsp;
+	<center><h3>
+		<u>	Download source and data
+		</u>
+	</h3></center>
+</p>
+<ol>
+	<li>  
+		Download the 'Download_Blockchain.zip' using 'Start Mining Locally' button in Transction Pool
+	</li>
+	&nbsp;
+	<li>
+		Unzip the file
+	</li>
+	&nbsp;
+	<li>
+		Run the code locally to generate new blockchain by clicking 
+			<ul>
+				<li>'run.sh' for linux</li>
+				<li>'run.bat' for windows</li>
+			</ul>
+	</li>
+	&nbsp;
+	<li>
+		Upload the 'output.json' file
+	</li>
+</ol>
+
+
+
+<p><b>Note:</b> The download attribute is not supported in IE or Edge (prior version 18), or in Safari (prior version 10.1).</p>
+
+<center>
+<u>
+	<h3>Upload 'output.json' to add block in the blockchain</h3>
+</u>
+</center>
+
+<div class="container" data-aos="fade-up">
+		<br>
+		<br>
+    <form method="POST" action="/upload_bc" enctype="multipart/form-data">
+        <center><input type="file" class="custom-file-input" id="customFile" name="file"></center>        
+        <br>
+        <div class="col-auto">
+          <center>
+          <button type="submit" class="btn btn-primary mb-2">Upload</button>
+          </center>
+        </div>
+
+      <!-- </div> -->
+    </form>
+
+</div>
+{% endblock %}

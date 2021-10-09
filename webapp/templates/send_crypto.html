@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% block contentaccount %}
+<div class="b-example-divider"></div>
+&nbsp;
+&nbsp;
+<p >
+  <center><h2>Send Crypto</h2></center>
+</p>
+
+  <div class="container" data-aos="fade-up">
+    <form method="POST" action="/send_crypto">
+      <div class="form-row align-items-center">
+        <div class="col-auto">
+          <label class="sr-only" for="inlineFormInput">Amount</label>
+          <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="10" name="amount">
+        </div>
+        <div class="col-auto">
+          <label class="sr-only" for="inlineFormInputGroup">Public Key</label>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+            </div>
+            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="56sd15sd1vfh" name="vk">
+          </div>
+        </div>
+        
+        <div class="col-auto">
+          <center>
+          <button type="submit" class="btn btn-primary mb-2">Send</button>
+          </center>
+        </div>
+      </div>
+    </form>
+
+</div>
+{% endblock %}
