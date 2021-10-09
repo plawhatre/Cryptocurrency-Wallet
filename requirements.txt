@@ -3,7 +3,6 @@ astunparse==1.6.3
 attrs==19.3.0
 bcrypt==3.2.0
 bidict==0.21.3
-blinker==1.4
 Brlapi==0.7.0
 build==0.4.0
 cached-property==1.5.1
